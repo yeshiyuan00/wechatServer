@@ -1,10 +1,10 @@
 {
-    "name": "hello-koa2",
+    "name": "wechatServer",
     "version": "1.0.0",
-    "description": "Hello Koa 2 example with async",
+    "description": "Koa 2 wechatServer",
     "main": "start.js",
     "scripts": {
-        "start": "node start.js"
+        "start": "pm2 start --name wechat start.js"
     },
     "keywords": [
         "koa",
