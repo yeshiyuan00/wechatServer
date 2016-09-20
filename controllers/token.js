@@ -12,15 +12,15 @@ const checkSignature = (signature,timestamp,nonce,token) => {
   return shaResult === signature;
 }
 
-const weToken = async (ctx, next) => {
+const wechatToken = async (ctx, next) => {
     const { signature, timestamp, nonce, echostr } = ctx.request.query;
     if (checkSignature(signature, timestamp, nonce, token)) {
-      console.log(signature, timestamp, nonce, echostr, token);
       ctx.response.body = echostr;
+    } else {
+      ctx.response.body = 'invalid request';
     }
-    ctx.response.body = 'invalid request';
 };
 
 module.exports = {
-    'GET /token': weToken
+    'GET /wechat/token': wechatToken
 };
