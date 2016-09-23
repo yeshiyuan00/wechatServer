@@ -45,4 +45,4 @@ var sign = function (jsapi_ticket, url) {
   return ret;
 };
 
-module.exports = sign;
+// module.exports = sign;

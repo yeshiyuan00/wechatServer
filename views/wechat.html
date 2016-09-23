@@ -121,7 +121,7 @@
   </div>
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-<script>
+<script src='/static/js/sign.js'>
   /*
    * 注意：
    * 1. 所有的JS接口只能在公众号绑定的域名下调用，公众号开发者需要先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
@@ -133,8 +133,6 @@
    * 邮件主题：【微信JS-SDK反馈】具体问题
    * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
    */
-
-  var sign = require('/static/js/sign.js');
 
   var result=sign('kgt8ON7yVITDhtdwci0qeW35kc4f4P7bANzkbmofLi91G8pJEx2t9I3nQg-qbL1Pt59LZ-Om55AIMRYQ4F2Qtg',window.location.pathname);
 
