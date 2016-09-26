@@ -133,8 +133,11 @@
    * 邮件主题：【微信JS-SDK反馈】具体问题
    * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
    */
+   console.log("hello every one!!!");
 
   var result=sign('kgt8ON7yVITDhtdwci0qeW35kc4f4P7bANzkbmofLi91G8pJEx2t9I3nQg-qbL1Pt59LZ-Om55AIMRYQ4F2Qtg',window.location.pathname);
+
+  console.log('timestamp====>'+result.timestamp);
 
   wx.config({
       debug: false,
