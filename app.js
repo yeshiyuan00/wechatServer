@@ -19,9 +19,9 @@ const templating = require('./templating.js');
 const isProduction = process.env.NODE_ENV === 'production';
 
 app.use(async (ctx, next) => {
-  ctx.response.header("Access-Control-Allow-Origin", "*");
-  ctx.response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+  ctx.response.set("Access-Control-Allow-Origin", "*");
+  ctx.response.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  await next();
 });
 
 // log request URL:
