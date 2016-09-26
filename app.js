@@ -18,6 +18,12 @@ const templating = require('./templating.js');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
+app.use(async (ctx, next) => {
+  ctx.response.header("Access-Control-Allow-Origin", "*");
+  ctx.response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // log request URL:
 app.use(async (ctx, next) => {
     console.log(`Process ${ctx.request.method} ${ctx.request.url}...`); // 打印URL
