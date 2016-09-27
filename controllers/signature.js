@@ -3,12 +3,12 @@ import config from '../config';
 import sign from '../lib/sign';
 import { get } from '../lib/server';
 
-const getAccessToken = () => {
+const getAccessToken = ({appid, secret}) => {
   return get('https://api.weixin.qq.com/cgi-bin/token', {
     query: {
       grant_type: 'client_credential',
-      appid: config.appid,
-      secret: config.secret,
+      appid: appid,
+      secret: secret,
     },
   });
 }
@@ -24,9 +24,10 @@ const getJsapiTicket = access_token => {
 
 const wechatSignature = async (ctx, next) => {
   const url = ctx.request.href;
+  const body = ctx.request.body || {};
   try {
     if (!global.ACCESS_TOKEN) {
-      const data = await getAccessToken();
+      const data = await getAccessToken(body);
       global.ACCESS_TOKEN = data.access_token;
     }
     const data = await getJsapiTicket(global.ACCESS_TOKEN);
@@ -37,5 +38,5 @@ const wechatSignature = async (ctx, next) => {
 }
 
 module.exports = {
-    'GET /wechat/signature': wechatSignature
+    'POST /wechat/signature': wechatSignature
 };
